@@ -1,0 +1,20 @@
+# Netlify Configuration for Iron Paradise Gym Static Site
+
+[build]
+  # No build command required for pure static HTML/CSS/JS
+  publish = "."
+
+# Custom 404 Handling
+[[redirects]]
+  from = "/*"
+  to = "/404.html"
+  status = 404
+
+# Recommended Security Headers
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    X-XSS-Protection = "1; mode=block"
+    Referrer-Policy = "strict-origin-when-cross-origin"
